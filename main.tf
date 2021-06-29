@@ -81,6 +81,9 @@ resource "aws_dynamodb_table" "this" {
   }
 
   lifecycle {
-    ignore_changes = var.ignore_changes
+    ignore_changes = [
+      read_capacity,
+      write_capacity
+    ]
   }
 }
