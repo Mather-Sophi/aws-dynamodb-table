@@ -80,9 +80,7 @@ resource "aws_dynamodb_table" "this" {
     update = lookup(var.timeouts, "update", null)
   }
 
-  dynamic "lifecycle" {
-    count = length(var.ignore_changes) > 0 ? 1 : 0
-
+  lifecycle {
     ignore_changes = var.ignore_changes
   }
 }
