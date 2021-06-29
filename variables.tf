@@ -149,3 +149,9 @@ variable "autoscaling_indexes" {
   type        = map(map(string))
   default     = {}
 }
+
+variable "ignore_changes" {
+  description = "A list of aws_dynamodb_table attribute(s) to ignore change in lifecycle rule"
+  type        = list(string)
+  default     = []
+}

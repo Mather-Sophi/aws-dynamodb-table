@@ -79,4 +79,10 @@ resource "aws_dynamodb_table" "this" {
     delete = lookup(var.timeouts, "delete", null)
     update = lookup(var.timeouts, "update", null)
   }
+
+  dynamic "lifecycle" {
+    count = length(var.ignore_changes) > 0 ? 1 : 0
+
+    ignore_changes = var.ignore_changes
+  }
 }
